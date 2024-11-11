@@ -43,7 +43,7 @@ pub struct Transaction {
 /// Represents a signature with its associated public key
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Sign {
-    pub signature: Signature,
+    pub signatgure: Signature,
     pub key: Public,
 }
 
@@ -327,7 +327,7 @@ impl Transaction {
             .map_err(|_| "Failed to sign transaction")?;
         
         let signature = Sign {
-            signature: sign,
+            signatgure: sign,
             key: wallet,
         };
 
