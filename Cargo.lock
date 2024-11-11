@@ -484,7 +484,7 @@ dependencies = [
 
 [[package]]
 name = "cc_transaction"
-version = "0.9.0"
+version = "0.9.1"
 dependencies = [
  "centichain_keypair",
  "chrono",
