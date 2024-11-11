@@ -347,10 +347,10 @@ impl Transaction {
             .json(&transaction)
             .send()
             .await
-            .map_err(|_| "Failed to send transaction")?
+            .map_err(|e| format!("Failed to send transaction: {}", e))?
             .json::<TxRes>()
             .await
-            .map_err(|_| "Failed to parse transaction response")?;
+            .map_err(|e| format!("Failed to parse transaction response: {}", e))?;
 
         if response.status == "success" {
             Ok(())
