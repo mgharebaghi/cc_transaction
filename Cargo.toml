@@ -1,6 +1,6 @@
 [package]
 name = "cc_transaction"
-version = "0.9.4"
+version = "0.9.5"
 edition = "2021"
 description = "A library for handling cryptocurrency transactions on the Centichain network"
 license = "MIT OR Apache-2.0"
@@ -12,7 +12,7 @@ categories = ["cryptography::cryptocurrencies"]
 
 [dependencies]
 rust_decimal = "^1.35"
-reqwest = { version = "0.12.5", features = ["json", "stream"] }
+reqwest = { version = "0.12.5", features = ["json", "stream", "rustls-tls"] }
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 sp-core = "^34.0"
