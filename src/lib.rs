@@ -342,15 +342,20 @@ impl Transaction {
             date: Utc::now().round_subsecs(0).to_string(),
         };
 
-        let response = client
+        let raw_response = client
             .post("https://centichain.org/jrpc/trx")
             .json(&transaction)
             .send()
             .await
             .map_err(|e| format!("Failed to send transaction: {}", e))?
-            .json::<TxRes>()
+            .text()
             .await
-            .map_err(|e| format!("Failed to parse transaction response: {}", e))?;
+            .map_err(|e| format!("Failed to get response text: {}", e))?;
+        
+        println!("Raw response: {}", raw_response);  // Debug line
+        
+        let response: TxRes = serde_json::from_str(&raw_response)
+            .map_err(|e| format!("Failed to parse transaction response: {}. Raw response: {}", e, raw_response))?;
 
         if response.status == "success" {
             Ok(())
