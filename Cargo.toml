@@ -1,6 +1,6 @@
 [package]
 name = "cc_transaction"
-version = "0.9.6"
+version = "0.9.7"
 edition = "2021"
 description = "A library for handling cryptocurrency transactions on the Centichain network"
 license = "MIT OR Apache-2.0"
@@ -21,4 +21,3 @@ rand = "0.8.5"
 centichain_keypair = "3.2.3"
 sha2 = "^0.10"
 chrono = "0.4.38"
-openssl-sys = "0.9.104"
