@@ -252,7 +252,7 @@ impl Transaction {
         let fee = decimal_value * Decimal::from_str("0.01")
             .expect("Failed to parse fee percentage");
 
-        let client = Client::new();
+        let client = Client::builder().use_rustls_tls().build().unwrap();
         let request = ReqBody {
             public_key: wallet.to_string(),
             request: "utxo".to_string(),
