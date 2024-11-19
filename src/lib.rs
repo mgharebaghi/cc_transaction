@@ -274,7 +274,7 @@ impl Transaction {
             return Err(response.description);
         }
 
-        Transaction::sending(
+        Self::sending(
             wallet.to_string(),
             private,
             decimal_value,
@@ -360,7 +360,7 @@ impl Transaction {
         if response.status == "success" {
             Ok(())
         } else {
-            Err("Server has problem! Please try with another provider.".to_string())
+            Err(response.description)
         }
     }
 }

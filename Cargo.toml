@@ -1,6 +1,6 @@
 [package]
 name = "cc_transaction"
-version = "0.9.9"
+version = "0.10.0"
 edition = "2021"
 description = "A library for handling cryptocurrency transactions on the Centichain network"
 license = "MIT OR Apache-2.0"
