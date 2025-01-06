@@ -72,13 +72,14 @@ impl Transaction {
         let to = to.trim();
         let to: Public = to.parse().unwrap();
         let salt = rand::thread_rng().gen_range(0..10_000_000);
-        let decimal_value = Decimal::from_str(&value).unwrap();
+        let decimal_value = Decimal::from_str(&value).unwrap().trunc_with_scale(12);
+        let fee = decimal_value * Decimal::from_str("0.01").unwrap().trunc_with_scale(12);
 
         let trx_data = TrxData {
             from: wallet.to_string(),
             to,
             value: decimal_value,
-            fee: decimal_value * Decimal::from_str("0.01").unwrap(),
+            fee: fee.trunc_with_scale(12),
             salt,
         };
 
